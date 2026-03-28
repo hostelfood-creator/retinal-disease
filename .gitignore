@@ -18,7 +18,7 @@ env/
 # Project Specific - AI Dataset
 retinal-disease-detection/AI_Models/dataset/
 retinal-disease-detection/AI_Models/models/*.keras
-retinal-disease-detection/AI_Models/models/*_model/
+# retinal-disease-detection/AI_Models/models/*_model/ (Explicitly allowed for deployment)
 
 # IDE
 .vscode/
