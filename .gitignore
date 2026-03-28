@@ -1,0 +1,27 @@
+# Node.js
+node_modules/
+.next/
+dist/
+build/
+*.log
+.env*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# Project Specific - AI Dataset
+retinal-disease-detection/AI_Models/dataset/
+retinal-disease-detection/AI_Models/models/*.keras
+retinal-disease-detection/AI_Models/models/*_model/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

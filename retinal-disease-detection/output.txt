@@ -1,0 +1,39 @@
+2026-03-28 01:56:05.603923: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-28 01:56:08.501184: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+TensorFlow Version: 2.20.0
+Found 366 validated image filenames belonging to 5 classes.
+2026-03-28 01:56:09.587844: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\Users\msara\AppData\Roaming\Python\Python312\site-packages\keras\src\trainers\data_adapters\py_dataset_adapter.py:121: UserWarning: Your `PyDataset` class should call `super().__init__(**kwargs)` in its constructor. `**kwargs` can include `workers`, `use_multiprocessing`, `max_queue_size`. Do not pass these arguments to `fit()`, as they will be ignored.
+  self._warn_if_super_not_called()
+Test data loaded: 366 samples.
+
+--- MODEL COMPARISON ---
+
+=======================
+Loading Model 1 (Root)...
+Path: c:\Users\msara\OneDrive\Desktop\PG project\retinal-disease-detection\densenet_retina.keras
+Size: 35.89 MB (Directory)
+--> LOAD ERROR: [Errno 13] Permission denied: 'c:\\Users\\msara\\OneDrive\\Desktop\\PG project\\retinal-disease-detection\\densenet_retina.keras'
+
+=======================
+Loading Model 2 (Root Copy)...
+Path: c:\Users\msara\OneDrive\Desktop\PG project\retinal-disease-detection\densenet_retina.keras (1)
+Size: 89.19 MB (Directory)
+--> LOAD SUCCESS (took 1.45s)
+--> Architecture: DenseNet121_RetinaDR
+--> Total params: 7,701,061 | Trainable: 7,614,341 | Non-trainable: 86,720
+--> Evaluating Model 2 (Root Copy) on 5 batches...
+--> Test Loss: 0.1157 | Test Accuracy: 98.75% ( evaluated in 18.37s )
+
+=======================
+Loading Model 3 (AI_Models)...
+Path: c:\Users\msara\OneDrive\Desktop\PG project\retinal-disease-detection\AI_Models\models\densenet_retina.keras
+Size: 28.35 MB (File)
+--> LOAD SUCCESS (took 1.06s)
+--> Architecture: functional
+--> Total params: 7,042,629 | Trainable: 5,125 | Non-trainable: 7,037,504
+--> Evaluating Model 3 (AI_Models) on 5 batches...
+--> Test Loss: 0.7976 | Test Accuracy: 69.38% ( evaluated in 18.04s )
+
+--- END COMPARISON ---
