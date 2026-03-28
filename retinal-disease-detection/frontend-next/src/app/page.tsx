@@ -27,7 +27,7 @@ interface FWP {
   preview: string;
 }
 
-const API = "http://127.0.0.1:8000/api/v1";
+const API = "https://kjndkj-retinal-disease-api.hf.space/api/v1";
 
 export default function Page() {
   const container = useRef<HTMLDivElement>(null);
