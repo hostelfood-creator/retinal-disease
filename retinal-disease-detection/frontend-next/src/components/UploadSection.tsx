@@ -529,7 +529,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                      disabled={files.length === 0 || loading}
                    > 
                      <div className="bg" /> 
-                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 342 208" height={208} width={342} className="splash"> 
+                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 342 208" style={{ width: '100%', height: 'auto' }} className="splash"> 
                        <path strokeLinecap="round" strokeWidth={3} d="M54.1054 99.7837C54.1054 99.7837 40.0984 90.7874 26.6893 97.6362C13.2802 104.485 1.5 97.6362 1.5 97.6362" /> 
                        <path strokeLinecap="round" strokeWidth={3} d="M285.273 99.7841C285.273 99.7841 299.28 90.7879 312.689 97.6367C326.098 104.486 340.105 95.4893 340.105 95.4893" /> 
                        <path strokeLinecap="round" strokeWidth={3} strokeOpacity="0.3" d="M281.133 64.9917C281.133 64.9917 287.96 49.8089 302.934 48.2295C317.908 46.6501 319.712 36.5272 319.712 36.5272" /> 
@@ -544,7 +544,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
                        <path strokeLinecap="round" strokeWidth={3} strokeOpacity="0.3" d="M62.2941 145.984C62.2941 145.984 55.4671 161.167 40.4932 162.746C25.5194 164.326 23.7159 174.449 23.7159 174.449" /> 
                      </svg> 
                      <div className="wrap"> 
-                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 221 42" height={42} width={221} className="path"> 
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 221 42" style={{ width: '100%', height: '100%' }} preserveAspectRatio='none' className="path"> 
                          <path strokeLinecap="round" strokeWidth={3} d="M182.674 2H203C211.837 2 219 9.16344 219 18V24C219 32.8366 211.837 40 203 40H18C9.16345 40 2 32.8366 2 24V18C2 9.16344 9.16344 2 18 2H47.8855" /> 
                        </svg> 
                        <div className="outline" /> 

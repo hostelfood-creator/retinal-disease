@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex min-h-16 flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 sm:py-0">
+        <div className="flex h-16 items-center justify-between gap-4 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-4">
 
             <div className="flex items-baseline gap-3">
@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
             </div>
           </div>
 
-          <nav className="flex w-full overflow-x-auto no-scrollbar items-center pb-2 sm:pb-0 sm:w-auto sm:h-full">
+          <nav className="flex h-full items-center shrink-0">
             {TABS.map((t) => (
               <button
                 key={t.id}
