@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Pulse, IdentificationCard, ChartBar, Desktop } from "@phosphor-icons/react";
+import { IdentificationCard, ChartBar, Desktop } from "@phosphor-icons/react";
 import clsx from "clsx";
 
 interface HeaderProps {
@@ -22,9 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex h-8 w-8 items-center justify-center bg-slate-900">
-              <Pulse weight="bold" className="h-5 w-5 text-white" />
-            </div>
+
             <div className="flex items-baseline gap-3">
               <span className="text-xl font-black tracking-tight text-slate-900 font-heading">
                 RETINAI
