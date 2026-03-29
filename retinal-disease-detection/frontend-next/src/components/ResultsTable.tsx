@@ -39,10 +39,10 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({
   }, [results]);
 
   return (
-    <section className="mx-auto max-w-7xl pt-12 pb-32 animate-in-view">
-      <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-slate-100 pb-12">
+    <section className="mx-auto max-w-7xl pt-8 pb-16 sm:pt-12 sm:pb-32 animate-in-view px-4 sm:px-6">
+      <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:mb-12 border-b border-slate-100 pb-8 sm:pb-12">
         <div>
-          <h2 className="text-4xl font-black tracking-tight text-slate-900 uppercase font-heading">Diagnostic Findings</h2>
+          <h2 className="text-3xl font-black tracking-tight text-slate-900 uppercase font-heading sm:text-4xl">Diagnostic Findings</h2>
           <p className="mt-3 text-slate-500 text-lg font-medium font-sans">Dataset analysis complete. Review findings below.</p>
         </div>
         
@@ -54,8 +54,8 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({
         </div>
       </div>
 
-      <div className="clinical-card bg-white border-2 border-slate-100">
-        <div className="overflow-x-auto overflow-y-hidden custom-scrollbar">
+      <div className="clinical-card bg-white border-2 border-slate-100 -mx-4 sm:mx-0 overflow-hidden sm:rounded-none">
+        <div className="overflow-x-auto overflow-y-hidden custom-scrollbar px-4 sm:px-0">
           <table className="w-full text-left text-sm border-collapse font-sans">
             <thead>
               <tr className="bg-slate-50 border-b-2 border-slate-100 font-heading">

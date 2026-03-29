@@ -20,28 +20,28 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex min-h-16 flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 sm:py-0">
           <div className="flex items-center gap-4">
 
             <div className="flex items-baseline gap-3">
               <span className="text-xl font-black tracking-tight text-slate-900 font-heading">
                 RETINAI
               </span>
-              <span className="hidden h-4 w-px bg-slate-200 sm:block" />
-              <span className="hidden text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 sm:block font-heading">
+              <span className="hidden h-4 w-px bg-slate-200 md:block" />
+              <span className="hidden text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 md:block font-heading">
                 Clinical Diagnostic System
               </span>
             </div>
           </div>
 
-          <nav className="flex h-full items-center">
+          <nav className="flex w-full overflow-x-auto no-scrollbar items-center pb-2 sm:pb-0 sm:w-auto sm:h-full">
             {TABS.map((t) => (
               <button
                 key={t.id}
                 onClick={() => !t.disabled && onTabChange(t.id)}
                 disabled={t.disabled}
                 className={clsx(
-                  "group relative flex h-full items-center gap-2 px-6 text-[10px] font-bold uppercase tracking-[0.15em] transition-all font-heading",
+                  "group relative flex shrink-0 items-center justify-center gap-2 px-4 py-2 sm:h-full sm:px-6 text-[10px] font-bold uppercase tracking-[0.15em] transition-all font-heading",
                   activeTab === t.id
                     ? "text-slate-900"
                     : t.disabled

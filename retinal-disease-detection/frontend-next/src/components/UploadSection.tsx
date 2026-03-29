@@ -429,9 +429,9 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
   });
 
   return (
-    <section className="mx-auto max-w-6xl pt-16 pb-32">
-      <div className="mb-16 border-l-4 border-slate-900 pl-8">
-        <h1 className="text-5xl font-black tracking-tight text-slate-900 sm:text-7xl mb-4 font-heading">
+    <section className="mx-auto max-w-6xl pt-8 pb-16 sm:pt-16 sm:pb-32">
+      <div className="mb-8 border-l-4 border-slate-900 pl-4 sm:mb-16 sm:pl-8">
+        <h1 className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl md:text-7xl mb-4 font-heading break-words">
           DIAGNOSTIC CORE
         </h1>
         <p className="max-w-2xl text-lg font-medium text-slate-500 leading-relaxed font-sans">
@@ -445,7 +445,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
           <div
             {...getRootProps()}
             className={clsx(
-              "group relative flex min-h-[460px] cursor-pointer flex-col items-center justify-center border-2 border-slate-100 bg-white transition-all duration-200",
+              "group relative flex min-h-[300px] sm:min-h-[460px] cursor-pointer flex-col items-center justify-center border-2 border-slate-100 bg-white transition-all duration-200",
               isDragActive
                 ? "border-slate-900 bg-slate-50"
                 : "hover:border-slate-300 hover:bg-slate-50/30"
@@ -457,7 +457,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
               <div className="mb-8 flex h-24 w-24 items-center justify-center bg-slate-50 border border-slate-100 group-hover:scale-105 transition-transform duration-300">
                 <UploadSimple weight="bold" className={clsx("h-10 w-10 transition-colors duration-300", isDragActive ? "text-slate-900" : "text-slate-300 group-hover:text-slate-900")} />
               </div>
-              <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-3 uppercase font-heading">
+              <h3 className="text-xl font-black tracking-tight text-slate-900 mb-3 uppercase font-heading sm:text-2xl">
                 {isDragActive ? "INITIATE UPLOAD" : "SELECT PHOTOS"}
               </h3>
               <p className="text-slate-500 max-w-sm text-sm font-medium font-sans">
@@ -473,7 +473,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
         </div>
 
         <div className="lg:col-span-4 flex flex-col gap-8">
-          <div className="clinical-card p-8 min-h-[460px] flex flex-col border-2 border-slate-100">
+          <div className="clinical-card p-6 sm:p-8 min-h-[300px] sm:min-h-[460px] flex flex-col border-2 border-slate-100">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
               <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 font-heading">SESSION QUEUE</h4>
               {files.length > 0 && (

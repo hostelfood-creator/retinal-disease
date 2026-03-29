@@ -45,9 +45,9 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ results }) =
   }, [results]);
 
   return (
-    <section className="mx-auto max-w-7xl pt-16 pb-32 animate-in-view">
-      <div className="mb-16 border-b border-slate-100 pb-12">
-        <h2 className="text-4xl font-black tracking-tight text-slate-900 uppercase font-heading">Population Metrics</h2>
+    <section className="mx-auto max-w-7xl pt-8 pb-16 sm:pt-16 sm:pb-32 animate-in-view px-4 sm:px-6">
+      <div className="mb-8 border-b border-slate-100 pb-8 sm:mb-16 sm:pb-12">
+        <h2 className="text-3xl font-black tracking-tight text-slate-900 uppercase font-heading sm:text-4xl">Population Metrics</h2>
         <p className="mt-3 text-slate-500 text-lg font-medium font-sans">Statistical distribution across the active dataset.</p>
       </div>
 
@@ -124,9 +124,9 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ results }) =
 
 function ChartCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="clinical-card border-2 border-slate-100 p-10 bg-white">
-      <h4 className="mb-10 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 font-heading">{title}</h4>
-      <div className="flex h-[360px] w-full items-center justify-center font-technical">
+    <div className="clinical-card border-2 border-slate-100 p-6 sm:p-10 bg-white">
+      <h4 className="mb-6 sm:mb-10 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 font-heading">{title}</h4>
+      <div className="flex h-[300px] sm:h-[360px] w-full items-center justify-center font-technical">
         {children}
       </div>
     </div>
