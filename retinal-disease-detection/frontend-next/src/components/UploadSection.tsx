@@ -23,12 +23,12 @@ const StyledWrapper = styled.div`
   }
 
    .button { 
-     --white: #ffe7ff; 
-     --purple-100: #f4b1fd; 
-     --purple-200: #d190ff; 
-     --purple-300: #c389f2; 
-     --purple-400: #8e26e2; 
-     --purple-500: #5e2b83; 
+     --white: #f0fdf4; 
+     --purple-100: #dcfce7; 
+     --purple-200: #86efac; 
+     --purple-300: #4ade80; 
+     --purple-400: #16a34a; 
+     --purple-500: #14532d; 
      --radius: 18px; 
   
      border-radius: var(--radius); 
@@ -77,13 +77,13 @@ const StyledWrapper = styled.div`
      filter: blur(5px); 
      transition: all 0.3s ease; 
      box-shadow: 
-       -7px 6px 0 0 rgb(115 75 155 / 40%), 
-       -14px 12px 0 0 rgb(115 75 155 / 30%), 
-       -21px 18px 4px 0 rgb(115 75 155 / 25%), 
-       -28px 24px 8px 0 rgb(115 75 155 / 15%), 
-       -35px 30px 12px 0 rgb(115 75 155 / 12%), 
-       -42px 36px 16px 0 rgb(115 75 155 / 8%), 
-       -56px 42px 20px 0 rgb(115 75 155 / 5%); 
+       -7px 6px 0 0 rgb(22 163 74 / 40%), 
+       -14px 12px 0 0 rgb(22 163 74 / 30%), 
+       -21px 18px 4px 0 rgb(22 163 74 / 25%), 
+       -28px 24px 8px 0 rgb(22 163 74 / 15%), 
+       -35px 30px 12px 0 rgb(22 163 74 / 12%), 
+       -42px 36px 16px 0 rgb(22 163 74 / 8%), 
+       -56px 42px 20px 0 rgb(22 163 74 / 5%); 
    } 
   
    .wrap { 
@@ -293,13 +293,13 @@ const StyledWrapper = styled.div`
      filter: blur(5px); 
      opacity: 0.7; 
      box-shadow: 
-       -7px 6px 0 0 rgb(115 75 155 / 40%), 
-       -14px 12px 0 0 rgb(115 75 155 / 25%), 
-       -21px 18px 4px 0 rgb(115 75 155 / 15%); 
+       -7px 6px 0 0 rgb(22 163 74 / 40%), 
+       -14px 12px 0 0 rgb(22 163 74 / 25%), 
+       -21px 18px 4px 0 rgb(22 163 74 / 15%); 
    } 
    .button:not(:disabled):active .content { 
      box-shadow: 
-       inset -1px 12px 8px -5px rgba(71, 0, 137, 0.4), 
+       inset -1px 12px 8px -5px rgba(20, 83, 45, 0.4), 
        inset 0px -3px 8px 0px var(--purple-200); 
    } 
   
@@ -409,7 +409,7 @@ const StyledWrapper = styled.div`
      from { stroke: white; } 
      to { 
        stroke-dashoffset: -480; 
-       stroke: #f9c6fe; 
+       stroke: var(--purple-100); 
      } 
    } 
   
