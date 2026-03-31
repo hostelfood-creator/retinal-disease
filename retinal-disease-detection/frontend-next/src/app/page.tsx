@@ -13,6 +13,9 @@ import { AnalyticsSection } from "@/components/AnalyticsSection";
 import { DetailModal } from "@/components/DetailModal";
 import { ProcessingOverlay } from "@/components/ProcessingOverlay";
 
+// PDF Generator
+import { generateDiagnosticPDF } from "@/lib/generateReport";
+
 gsap.registerPlugin(useGSAP);
 
 /* ─── Types ─── */
@@ -86,26 +89,15 @@ export default function Page() {
     }
   };
 
-  /* PDF Report Handler */
+  /* PDF Report Handler (Client-side) */
   const downloadPDF = async (index: number) => {
     const fwp = files[index];
-    if (!fwp) return;
+    const pred = results[index];
+    if (!fwp || !pred) return;
 
-    const fd = new FormData();
-    fd.append("file", fwp.file);
-    
     try {
-      const res = await axios.post(`${API}/report/generate`, fd, {
-        responseType: "blob",
-      });
-      const url = URL.createObjectURL(new Blob([res.data]));
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `Diagnostic_Report_${fwp.file.name}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      const filename = `Diagnostic_Report_${fwp.file.name.replace(/\.[^/.]+$/, "")}.pdf`;
+      await generateDiagnosticPDF(pred, fwp.file, filename);
     } catch (e) {
       console.error("PDF generation failed:", e);
     }
