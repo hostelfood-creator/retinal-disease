@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { IdentificationCard, ChartBar, Desktop } from "@phosphor-icons/react";
 import clsx from "clsx";
 
@@ -20,33 +21,44 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-4 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-4">
-
-            <div className="flex items-baseline gap-3">
-              <span className="text-xl font-black tracking-tight text-slate-900 font-heading">
-                RETINAI
-              </span>
-              <span className="hidden h-4 w-px bg-slate-200 md:block" />
-              <span className="hidden text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 md:block font-heading">
-                Clinical Diagnostic System
-              </span>
-            </div>
+        {/* Top bar: brand + status */}
+        <div className="flex h-14 sm:h-16 items-center justify-between gap-4">
+          <div className="flex flex-col justify-center min-w-0 shrink-0">
+            <Image 
+              src="/logo.png" 
+              alt="Netra AI - Intelligent Vision & Analytics" 
+              width={160} 
+              height={50} 
+              className="object-contain h-10 sm:h-12 w-auto"
+              priority
+            />
           </div>
 
-          <nav className="flex h-full items-center shrink-0">
+          <div className="hidden sm:flex items-center gap-6">
+             <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                System Nominal
+             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Tab navigation - horizontally scrollable on mobile */}
+      <div className="border-t border-slate-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center overflow-x-auto no-scrollbar -mb-px">
             {TABS.map((t) => (
               <button
                 key={t.id}
                 onClick={() => !t.disabled && onTabChange(t.id)}
                 disabled={t.disabled}
                 className={clsx(
-                  "group relative flex shrink-0 items-center justify-center gap-2 px-4 py-2 sm:h-full sm:px-6 text-[10px] font-bold uppercase tracking-[0.15em] transition-all font-heading",
+                  "group relative flex shrink-0 items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-3.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.15em] transition-all font-heading touch-target",
                   activeTab === t.id
                     ? "text-slate-900"
                     : t.disabled
                     ? "text-slate-300 cursor-not-allowed"
-                    : "text-slate-500 hover:text-slate-900"
+                    : "text-slate-500 hover:text-slate-900 active:text-slate-900"
                 )}
               >
                 <t.icon weight={activeTab === t.id ? "bold" : "regular"} className="h-4 w-4" />
@@ -57,13 +69,6 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
               </button>
             ))}
           </nav>
-
-          <div className="hidden items-center gap-6 sm:flex">
-             <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                System Nominal
-             </div>
-          </div>
         </div>
       </div>
     </header>

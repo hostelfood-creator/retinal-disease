@@ -46,12 +46,12 @@ export const AnalyticsSection: React.FC<AnalyticsSectionProps> = ({ results }) =
 
   return (
     <section className="mx-auto max-w-7xl pt-8 pb-16 sm:pt-16 sm:pb-32 animate-in-view px-4 sm:px-6">
-      <div className="mb-8 border-b border-slate-100 pb-8 sm:mb-16 sm:pb-12">
-        <h2 className="text-3xl font-black tracking-tight text-slate-900 uppercase font-heading sm:text-4xl">Population Metrics</h2>
-        <p className="mt-3 text-slate-500 text-lg font-medium font-sans">Statistical distribution across the active dataset.</p>
+      <div className="mb-6 sm:mb-8 border-b border-slate-100 pb-6 sm:pb-12 lg:mb-16">
+        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 uppercase font-heading lg:text-4xl">Population Metrics</h2>
+        <p className="mt-2 sm:mt-3 text-slate-500 text-base sm:text-lg font-medium font-sans">Statistical distribution across the active dataset.</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-2">
         <ChartCard title="DIAGNOSIS DISTRIBUTION">
           <ResponsiveContainer width="100%" height={360}>
             <PieChart>

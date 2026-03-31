@@ -40,13 +40,13 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({
 
   return (
     <section className="mx-auto max-w-7xl pt-8 pb-16 sm:pt-12 sm:pb-32 animate-in-view px-4 sm:px-6">
-      <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:mb-12 border-b border-slate-100 pb-8 sm:pb-12">
+      <div className="mb-6 sm:mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-6 border-b border-slate-100 pb-6 sm:pb-12">
         <div>
-          <h2 className="text-3xl font-black tracking-tight text-slate-900 uppercase font-heading sm:text-4xl">Diagnostic Findings</h2>
-          <p className="mt-3 text-slate-500 text-lg font-medium font-sans">Dataset analysis complete. Review findings below.</p>
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 uppercase font-heading lg:text-4xl">Diagnostic Findings</h2>
+          <p className="mt-2 sm:mt-3 text-slate-500 text-base sm:text-lg font-medium font-sans">Dataset analysis complete. Review findings below.</p>
         </div>
         
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-3 sm:gap-4">
           <KPICard label="TOTAL" value={stats.total} icon={FileImage} color="slate" />
           <KPICard label="NORMAL" value={stats.normal} icon={CheckCircle} color="emerald" />
           <KPICard label="ABNORMAL" value={stats.abnormal} icon={Warning} color="amber" />
@@ -59,12 +59,12 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({
           <table className="w-full text-left text-sm border-collapse font-sans">
             <thead>
               <tr className="bg-slate-50 border-b-2 border-slate-100 font-heading">
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">INDEX</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">ASSET IDENTIFIER</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">PRIMARY DIAGNOSIS</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">CONFIDENCE</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">DISTRIBUTION</th>
-                <th className="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-right">ACTION</th>
+                <th className="hidden sm:table-cell px-4 sm:px-8 py-4 sm:py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">INDEX</th>
+                <th className="px-4 sm:px-8 py-4 sm:py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">ASSET IDENTIFIER</th>
+                <th className="px-4 sm:px-8 py-4 sm:py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">PRIMARY DIAGNOSIS</th>
+                <th className="hidden md:table-cell px-4 sm:px-8 py-4 sm:py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">CONFIDENCE</th>
+                <th className="hidden lg:table-cell px-4 sm:px-8 py-4 sm:py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">DISTRIBUTION</th>
+                <th className="px-4 sm:px-8 py-4 sm:py-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 text-right">ACTION</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -78,27 +78,27 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({
                     onClick={() => onDetailClick(idx)}
                     className="group cursor-pointer transition-colors hover:bg-slate-50/50"
                   >
-                    <td className="px-8 py-6">
+                    <td className="hidden sm:table-cell px-4 sm:px-8 py-4 sm:py-6">
                       <span className="font-technical text-[11px] font-bold text-slate-300">0{idx + 1}</span>
                     </td>
-                    <td className="px-8 py-6">
-                      <div className="flex items-center gap-5">
-                        <div className="h-14 w-14 shrink-0 bg-slate-900 border border-slate-200 overflow-hidden flex items-center justify-center">
+                    <td className="px-4 sm:px-8 py-4 sm:py-6">
+                      <div className="flex items-center gap-3 sm:gap-5">
+                        <div className="h-10 w-10 sm:h-14 sm:w-14 shrink-0 bg-slate-900 border border-slate-200 overflow-hidden flex items-center justify-center">
                           {files[idx] && <img src={files[idx].preview} alt="" className="max-h-full max-w-full object-contain transition-all" />}
                         </div>
-                        <div className="flex flex-col">
-                          <span className="max-w-[200px] truncate font-black text-slate-900 uppercase tracking-tight font-heading">{row.filename}</span>
+                        <div className="flex flex-col min-w-0">
+                          <span className="max-w-[120px] sm:max-w-[200px] truncate font-black text-slate-900 uppercase tracking-tight font-heading text-xs sm:text-sm">{row.filename}</span>
                           <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1 font-technical">ID: {row.filename.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0).toString(16).toUpperCase()}</span>
                         </div>
                       </div>
                     </td>
-                    <td className="px-8 py-6">
-                      <div className="flex items-center gap-3">
+                    <td className="px-4 sm:px-8 py-4 sm:py-6">
+                      <div className="flex items-center gap-2 sm:gap-3">
                         <div className="h-2 w-2 rounded-full" style={{ backgroundColor: SEV_COLOR[row.diagnosis] }} />
-                        <span className="text-[11px] font-black uppercase tracking-widest text-slate-900 font-heading">{row.diagnosis}</span>
+                        <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-900 font-heading">{row.diagnosis}</span>
                       </div>
                     </td>
-                    <td className="px-8 py-6">
+                    <td className="hidden md:table-cell px-4 sm:px-8 py-4 sm:py-6">
                       <div className="flex items-center gap-2">
                         <span className="font-technical text-lg font-black text-slate-900">{conf.toFixed(1)}%</span>
                         <div className="h-1.5 w-16 bg-slate-100 rounded-full overflow-hidden hidden sm:block">
@@ -106,7 +106,7 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({
                         </div>
                       </div>
                     </td>
-                    <td className="px-8 py-6">
+                    <td className="hidden lg:table-cell px-4 sm:px-8 py-4 sm:py-6">
                       <div className="flex h-4 w-full max-w-[180px] bg-slate-100 p-0.5">
                         {sortedProbs.map(([name, value], i) => (
                           value > 3 && (
@@ -120,17 +120,17 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({
                         ))}
                       </div>
                     </td>
-                    <td className="px-8 py-6 text-right">
-                      <div className="flex items-center justify-end gap-3">
+                    <td className="px-4 sm:px-8 py-4 sm:py-6 text-right">
+                      <div className="flex items-center justify-end gap-2 sm:gap-3">
                         <button
                           onClick={(e) => { e.stopPropagation(); onDownloadPDF(idx); }}
-                          className="flex h-10 w-10 items-center justify-center border border-slate-200 bg-white text-slate-400 hover:border-slate-900 hover:text-slate-900 transition-all"
+                          className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center border border-slate-200 bg-white text-slate-400 hover:border-slate-900 hover:text-slate-900 transition-all touch-target"
                         >
                           <DownloadSimple weight="bold" className="h-4 w-4" />
                         </button>
                         <button
                           onClick={() => onDetailClick(idx)}
-                          className="flex h-10 w-10 items-center justify-center border border-slate-900 bg-slate-900 text-white hover:bg-black transition-all"
+                          className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center border border-slate-900 bg-slate-900 text-white hover:bg-black transition-all touch-target"
                         >
                           <Eye weight="bold" className="h-4 w-4" />
                         </button>
@@ -156,13 +156,13 @@ function KPICard({ label, value, icon: Icon, color }: { label: string; value: nu
   };
 
   return (
-    <div className="flex items-center gap-4 bg-white border border-slate-100 px-6 py-4 shadow-sm min-w-[140px] font-sans">
-      <div className={clsx("flex h-10 w-10 items-center justify-center border", styles[color])}>
-        <Icon weight="bold" size={18} />
+    <div className="flex items-center gap-3 sm:gap-4 bg-white border border-slate-100 px-4 sm:px-6 py-3 sm:py-4 shadow-sm min-w-0 font-sans">
+      <div className={clsx("flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center border shrink-0", styles[color])}>
+        <Icon weight="bold" size={16} />
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col min-w-0">
         <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 font-heading">{label}</span>
-        <span className="text-xl font-black text-slate-900 leading-none mt-1 font-technical">{value}</span>
+        <span className="text-lg sm:text-xl font-black text-slate-900 leading-none mt-1 font-technical">{value}</span>
       </div>
     </div>
   );

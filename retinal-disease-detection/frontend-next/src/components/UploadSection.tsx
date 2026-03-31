@@ -34,16 +34,23 @@ const StyledWrapper = styled.div`
      border-radius: var(--radius); 
      outline: none; 
      cursor: pointer; 
-     font-size: 18px; 
+     font-size: 14px; 
      font-family: var(--font-jakarta), Arial; 
      background: transparent; 
      letter-spacing: -1px; 
      border: 0; 
      position: relative; 
      width: 100%; 
-     height: 80px; 
+     height: 64px; 
      transform: rotate(359deg);
      transition: all 0.3s ease;
+   }
+
+   @media (min-width: 640px) {
+     .button {
+       height: 80px;
+       font-size: 18px;
+     }
    } 
 
    .button:disabled {
@@ -429,23 +436,23 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
   });
 
   return (
-    <section className="mx-auto max-w-6xl pt-8 pb-16 sm:pt-16 sm:pb-32">
+    <section className="mx-auto max-w-6xl pt-8 pb-16 sm:pt-16 sm:pb-32 px-4 sm:px-6">
       <div className="mb-8 border-l-4 border-slate-900 pl-4 sm:mb-16 sm:pl-8">
-        <h1 className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl md:text-7xl mb-4 font-heading break-words">
+        <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl md:text-7xl mb-3 sm:mb-4 font-heading break-words">
           DIAGNOSTIC CORE
         </h1>
-        <p className="max-w-2xl text-lg font-medium text-slate-500 leading-relaxed font-sans">
+        <p className="max-w-2xl text-base sm:text-lg font-medium text-slate-500 leading-relaxed font-sans">
           Automated screening of fundus photography for diabetic retinopathy.
           Our system utilizes high-precision convolutional networks for clinical assessment.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         <div className="lg:col-span-8">
           <div
             {...getRootProps()}
             className={clsx(
-              "group relative flex min-h-[300px] sm:min-h-[460px] cursor-pointer flex-col items-center justify-center border-2 border-slate-100 bg-white transition-all duration-200",
+              "group relative flex min-h-[240px] sm:min-h-[460px] cursor-pointer flex-col items-center justify-center border-2 border-slate-100 bg-white transition-all duration-200",
               isDragActive
                 ? "border-slate-900 bg-slate-50"
                 : "hover:border-slate-300 hover:bg-slate-50/30"
@@ -453,17 +460,17 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
           >
             <input {...getInputProps()} />
             
-            <div className="relative z-10 flex flex-col items-center p-12 text-center">
-              <div className="mb-8 flex h-24 w-24 items-center justify-center bg-slate-50 border border-slate-100 group-hover:scale-105 transition-transform duration-300">
-                <UploadSimple weight="bold" className={clsx("h-10 w-10 transition-colors duration-300", isDragActive ? "text-slate-900" : "text-slate-300 group-hover:text-slate-900")} />
+            <div className="relative z-10 flex flex-col items-center p-6 sm:p-12 text-center">
+              <div className="mb-6 sm:mb-8 flex h-16 w-16 sm:h-24 sm:w-24 items-center justify-center bg-slate-50 border border-slate-100 group-hover:scale-105 transition-transform duration-300">
+                <UploadSimple weight="bold" className={clsx("h-7 w-7 sm:h-10 sm:w-10 transition-colors duration-300", isDragActive ? "text-slate-900" : "text-slate-300 group-hover:text-slate-900")} />
               </div>
-              <h3 className="text-xl font-black tracking-tight text-slate-900 mb-3 uppercase font-heading sm:text-2xl">
+              <h3 className="text-xl font-black tracking-tight text-slate-900 mb-2 sm:mb-3 uppercase font-heading sm:text-2xl">
                 {isDragActive ? "INITIATE UPLOAD" : "SELECT PHOTOS"}
               </h3>
               <p className="text-slate-500 max-w-sm text-sm font-medium font-sans">
                 Drag and drop fundus photographs here, or <span className="text-slate-900 font-bold underline underline-offset-4 decoration-2">browse directory</span>.
               </p>
-              <div className="mt-12 flex items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 font-heading">
+              <div className="mt-6 sm:mt-12 flex items-center gap-4 sm:gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 font-heading">
                 <span className="flex items-center gap-2 font-technical"><FileImage size={16} /> PNG/JPG</span>
                 <span className="h-1 w-1 rounded-full bg-slate-300" />
                 <span className="font-technical">BATCH LIMIT: 10</span>
@@ -473,7 +480,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
         </div>
 
         <div className="lg:col-span-4 flex flex-col gap-8">
-          <div className="clinical-card p-6 sm:p-8 min-h-[300px] sm:min-h-[460px] flex flex-col border-2 border-slate-100">
+          <div className="clinical-card p-5 sm:p-8 min-h-[280px] sm:min-h-[460px] flex flex-col border-2 border-slate-100">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
               <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 font-heading">SESSION QUEUE</h4>
               {files.length > 0 && (

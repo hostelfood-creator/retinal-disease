@@ -64,6 +64,10 @@
 ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 0; }
 ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
 
+/* ── Hide scrollbar but keep scroll ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* ── Utility Classes ── */
 @layer utilities {
   .clinical-card {
@@ -72,4 +76,19 @@
   .no-gradient {
     background-image: none !important;
   }
+  /* Touch-friendly minimum tap targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ── Responsive typography clamp ── */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+}
+
+/* ── Safe area inset for notched devices ── */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 }

@@ -21,8 +21,8 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Retinal Disease Detection — AI Diagnostic Platform",
-  description: "AI-Powered Diabetic Retinopathy Screening using DenseNet121",
+  title: "Netra AI — Intelligent Vision & Analytics",
+  description: "AI-Powered Retinal Disease Detection and Diagnostic Platform",
 };
 
 export default function RootLayout({
@@ -32,7 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jakarta.variable} ${mono.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased" suppressHydrationWarning>{children}</body>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
+      <body className="font-sans antialiased overflow-x-hidden" suppressHydrationWarning>{children}</body>
     </html>
   );
 }
