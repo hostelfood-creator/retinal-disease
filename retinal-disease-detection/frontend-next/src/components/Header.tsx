@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
         <div className="flex h-14 sm:h-16 items-center justify-between gap-4">
           <div className="flex flex-col justify-center min-w-0 shrink-0">
             <Image 
-              src="/logo.png" 
+              src="/logo.jpg" 
               alt="Netra AI - Intelligent Vision & Analytics" 
               width={160} 
               height={50} 
