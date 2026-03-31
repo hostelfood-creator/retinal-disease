@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Top bar: brand + status */}
-        <div className="flex py-3 sm:py-4 items-center justify-between gap-4">
+        <div className="flex py-3 sm:py-4 items-center justify-center sm:justify-between gap-4">
           <div className="flex flex-col justify-center min-w-0 shrink-0">
             <Image 
               src="/logo.png" 
