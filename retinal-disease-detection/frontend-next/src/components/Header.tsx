@@ -27,9 +27,9 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
             <Image 
               src="/logo.png" 
               alt="Netra AI - Intelligent Vision & Analytics" 
-              width={350} 
-              height={100} 
-              className="object-contain h-16 sm:h-20 lg:h-24 w-auto drop-shadow-sm"
+              width={420} 
+              height={120} 
+              className="object-contain h-20 sm:h-24 lg:h-28 w-auto drop-shadow-sm"
               quality={100}
               priority
             />

@@ -94,8 +94,8 @@ export const DetailModal: React.FC<DetailModalProps> = ({
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between border-b-2 border-slate-100 bg-white px-4 py-4 sm:px-10 sm:py-6">
           <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-            <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center bg-slate-900 shrink-0">
-              <Pulse weight="bold" className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+            <div className="hidden sm:flex h-12 w-12 items-center justify-center bg-slate-900 shrink-0">
+              <Pulse weight="bold" className="h-6 w-6 text-white" />
             </div>
             <div className="min-w-0">
               <h3 className="text-lg sm:text-2xl font-black text-slate-900 uppercase tracking-tight font-heading">Diagnostic Report</h3>
