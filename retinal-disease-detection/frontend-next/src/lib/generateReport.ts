@@ -106,7 +106,7 @@ function drawPageBorder(doc: jsPDF) {
   const h = doc.internal.pageSize.getHeight();
 
   // Outer border
-  doc.setDrawColor(22, 66, 104); // #164268
+  doc.setDrawColor(50, 55, 65); // dark charcoal
   doc.setLineWidth(1.2);
   doc.rect(8, 8, w - 16, h - 16);
 
@@ -193,7 +193,7 @@ export async function generateDiagnosticPDF(
   // Report title (right aligned)
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
-  doc.setTextColor(22, 66, 104);
+  doc.setTextColor(50, 55, 65);
   doc.text("DIAGNOSTIC REPORT", pageW - margin, y + 6, { align: "right" });
 
   doc.setFontSize(8);
@@ -295,7 +295,7 @@ export async function generateDiagnosticPDF(
   if (imgB64) {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9);
-    doc.setTextColor(22, 66, 104);
+    doc.setTextColor(50, 55, 65);
     doc.text("RETINAL SCAN IMAGE", margin, y);
     y += 5;
 
@@ -324,7 +324,7 @@ export async function generateDiagnosticPDF(
 
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9);
-    doc.setTextColor(22, 66, 104);
+    doc.setTextColor(50, 55, 65);
     doc.text("PROBABILITY ANALYSIS", probX, y);
 
     let probY = y + 7;
@@ -365,7 +365,7 @@ export async function generateDiagnosticPDF(
     // No image – just show probabilities full width
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9);
-    doc.setTextColor(22, 66, 104);
+    doc.setTextColor(50, 55, 65);
     doc.text("PROBABILITY ANALYSIS", margin, y);
 
     y += 7;
@@ -410,7 +410,7 @@ export async function generateDiagnosticPDF(
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(14);
-  doc.setTextColor(22, 66, 104);
+  doc.setTextColor(50, 55, 65);
   doc.text("DIETARY RECOMMENDATIONS", pageW - margin, y + 5, { align: "right" });
 
   doc.setFont("helvetica", "normal");
@@ -485,14 +485,14 @@ export async function generateDiagnosticPDF(
     if (isWarning) {
       doc.setFillColor(180, 70, 70);
     } else {
-      doc.setFillColor(22, 66, 104);
+      doc.setFillColor(50, 55, 65);
     }
     doc.rect(colX, y, 2.5, 19, "F");
 
     // Item number
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
-    doc.setTextColor(isWarning ? 180 : 22, isWarning ? 70 : 66, isWarning ? 70 : 104);
+    doc.setTextColor(isWarning ? 180 : 50, isWarning ? 70 : 55, isWarning ? 70 : 65);
     doc.text(`${String(i + 1).padStart(2, "0")}`, colX + 6, y + 6);
 
     // Food name
@@ -552,14 +552,14 @@ export async function generateDiagnosticPDF(
     const ph = doc.internal.pageSize.getHeight();
 
     // Footer separator
-    doc.setDrawColor(22, 66, 104);
+    doc.setDrawColor(50, 55, 65);
     doc.setLineWidth(0.4);
     doc.line(margin, ph - 20, pageW - margin, ph - 20);
 
     // Footer left: branding
     doc.setFont("helvetica", "bold");
     doc.setFontSize(6);
-    doc.setTextColor(22, 66, 104);
+    doc.setTextColor(50, 55, 65);
     doc.text("Netra AI", margin, ph - 16);
 
     doc.setFont("helvetica", "normal");
@@ -581,7 +581,7 @@ export async function generateDiagnosticPDF(
     // Footer right: page number
     doc.setFont("helvetica", "bold");
     doc.setFontSize(6);
-    doc.setTextColor(22, 66, 104);
+    doc.setTextColor(50, 55, 65);
     doc.text(`${p} / ${totalPages}`, pageW - margin, ph - 16, { align: "right" });
   }
 
