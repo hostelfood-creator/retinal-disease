@@ -22,14 +22,14 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Top bar: brand + status */}
-        <div className="flex h-14 sm:h-16 items-center justify-between gap-4">
+        <div className="flex py-3 sm:py-4 items-center justify-between gap-4">
           <div className="flex flex-col justify-center min-w-0 shrink-0">
             <Image 
               src="/logo.png" 
               alt="Netra AI - Intelligent Vision & Analytics" 
-              width={220} 
-              height={70} 
-              className="object-contain h-12 sm:h-16 w-auto drop-shadow-sm"
+              width={350} 
+              height={100} 
+              className="object-contain h-16 sm:h-20 lg:h-24 w-auto drop-shadow-sm"
               quality={100}
               priority
             />

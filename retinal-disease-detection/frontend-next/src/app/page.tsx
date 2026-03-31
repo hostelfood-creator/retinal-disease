@@ -163,7 +163,7 @@ export default function Page() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center justify-between gap-6 sm:gap-8 md:flex-row">
               <div className="flex flex-col items-center gap-2 md:items-start">
-                <span className="text-xs sm:text-sm font-black tracking-widest text-slate-900 uppercase">NETRA AI CORE</span>
+                <span className="text-sm sm:text-base font-black tracking-widest text-[#164268] uppercase font-heading">नेत्र AI</span>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
                   Version 2.4.0 Clinical Release
                 </p>
