@@ -1,9 +1,52 @@
 "use client";
 
 import React from "react";
-import { X, DownloadSimple, Info, Aperture as RadarIcon, ChartBar, Pulse } from "@phosphor-icons/react";
+import { X, DownloadSimple, Info, Aperture as RadarIcon, ChartBar, Pulse, Leaf } from "@phosphor-icons/react";
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 import clsx from "clsx";
+
+/* ─── Food & Nutrition Recommendations per severity ─── */
+const FOOD_RECS: Record<string, { emoji: string; name: string; benefit: string }[]> = {
+  Normal: [
+    { emoji: "🥕", name: "Carrots & Sweet Potatoes", benefit: "Rich in beta-carotene for retinal health" },
+    { emoji: "🥬", name: "Spinach & Kale", benefit: "Lutein & zeaxanthin protect the macula" },
+    { emoji: "🐟", name: "Salmon & Sardines", benefit: "Omega-3 fatty acids reduce inflammation" },
+    { emoji: "🫐", name: "Blueberries", benefit: "Anthocyanins improve blood flow to eyes" },
+    { emoji: "🥚", name: "Eggs", benefit: "Lutein, zinc & vitamin E for lens protection" },
+  ],
+  Mild: [
+    { emoji: "🥦", name: "Broccoli & Brussels Sprouts", benefit: "Vitamin C supports blood vessel integrity" },
+    { emoji: "🍊", name: "Citrus Fruits", benefit: "High vitamin C to slow vascular damage" },
+    { emoji: "🥜", name: "Almonds & Walnuts", benefit: "Vitamin E protects against oxidative stress" },
+    { emoji: "🫘", name: "Lentils & Chickpeas", benefit: "Low-GI foods for blood sugar regulation" },
+    { emoji: "🐟", name: "Fatty Fish (2-3x/week)", benefit: "Omega-3s slow retinopathy progression" },
+    { emoji: "🧅", name: "Garlic & Onions", benefit: "Allicin helps regulate blood pressure" },
+  ],
+  Moderate: [
+    { emoji: "🥗", name: "Leafy Greens (daily)", benefit: "Essential carotenoids — increase intake" },
+    { emoji: "🫑", name: "Bell Peppers", benefit: "Very high vitamin C for capillary repair" },
+    { emoji: "🍠", name: "Sweet Potatoes (not fried)", benefit: "Low-GI carb with vitamin A" },
+    { emoji: "🥑", name: "Avocado", benefit: "Monounsaturated fats & lutein" },
+    { emoji: "🍵", name: "Green Tea", benefit: "Catechins protect retinal blood vessels" },
+    { emoji: "⛔", name: "Avoid: Sugary Drinks & Processed Food", benefit: "Blood sugar spikes worsen retinopathy" },
+  ],
+  Severe: [
+    { emoji: "🥬", name: "Dark Leafy Greens (2x daily)", benefit: "Maximize lutein & folate intake" },
+    { emoji: "🫐", name: "Berries & Cherries", benefit: "Powerful anti-inflammatory antioxidants" },
+    { emoji: "🐟", name: "Omega-3 Rich Fish (3-4x/week)", benefit: "Critical for reducing retinal inflammation" },
+    { emoji: "🧄", name: "Turmeric & Ginger", benefit: "Curcumin reduces vascular inflammation" },
+    { emoji: "⛔", name: "Strict: No White Rice / White Bread", benefit: "High-GI foods accelerate damage" },
+    { emoji: "⛔", name: "Strict: Limit Sodium & Trans Fats", benefit: "Protects blood pressure & vessels" },
+  ],
+  Proliferative: [
+    { emoji: "🚨", name: "Medical Diet Plan Required", benefit: "Consult a dietitian for personalized plan" },
+    { emoji: "🥬", name: "Anti-inflammatory Diet", benefit: "Greens, fish, nuts — reduce neovascularization" },
+    { emoji: "🫘", name: "High-Fiber, Low-GI Only", benefit: "Strict glycemic control is essential" },
+    { emoji: "🍵", name: "Green Tea & Turmeric Water", benefit: "Anti-angiogenic compounds may help" },
+    { emoji: "⛔", name: "Eliminate: Alcohol & Smoking", benefit: "Both dramatically worsen proliferative DR" },
+    { emoji: "⛔", name: "Eliminate: All Processed Sugar", benefit: "Immediate blood sugar control needed" },
+  ],
+};
 
 interface Prediction {
   filename: string;
@@ -136,6 +179,51 @@ export const DetailModal: React.FC<DetailModalProps> = ({
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* ── Food & Nutrition Recommendations ── */}
+              <div className={clsx(
+                "clinical-card p-5 sm:p-10 shadow-none border-2 bg-white",
+                prediction.diagnosis === "Normal" ? "border-emerald-200" :
+                prediction.diagnosis === "Mild" ? "border-amber-200" :
+                prediction.diagnosis === "Moderate" ? "border-orange-200" :
+                "border-red-200"
+              )}>
+                <div className="flex items-center gap-3 mb-6 sm:mb-8 pb-4 border-b border-slate-100">
+                  <Leaf weight="bold" className="h-5 w-5 text-emerald-600" />
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 font-heading">DIETARY RECOMMENDATIONS</h4>
+                  <span className={clsx(
+                    "ml-auto text-[8px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm",
+                    prediction.diagnosis === "Normal" ? "bg-emerald-100 text-emerald-700" :
+                    prediction.diagnosis === "Mild" ? "bg-amber-100 text-amber-700" :
+                    prediction.diagnosis === "Moderate" ? "bg-orange-100 text-orange-700" :
+                    "bg-red-100 text-red-700"
+                  )}>
+                    Based on: {prediction.diagnosis}
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  {(FOOD_RECS[prediction.diagnosis] || FOOD_RECS["Normal"]).map((item, idx) => (
+                    <div
+                      key={idx}
+                      className={clsx(
+                        "flex items-start gap-3 p-3 sm:p-4 rounded-lg border transition-all duration-200 hover:shadow-md",
+                        item.emoji === "⛔" || item.emoji === "🚨"
+                          ? "bg-red-50/60 border-red-100"
+                          : "bg-emerald-50/40 border-emerald-100"
+                      )}
+                    >
+                      <span className="text-xl sm:text-2xl shrink-0 mt-0.5">{item.emoji}</span>
+                      <div className="min-w-0">
+                        <p className="text-[11px] sm:text-xs font-black text-slate-800 leading-tight mb-1">{item.name}</p>
+                        <p className="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-snug">{item.benefit}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-5 sm:mt-6 text-[9px] font-bold uppercase tracking-widest text-slate-300 text-center font-heading">
+                  ⚕ Recommendations are general guidance — always consult your healthcare provider
+                </p>
               </div>
 
               <div className="clinical-card p-5 sm:p-10 shadow-none border-2 border-slate-100 flex flex-col items-center justify-center bg-slate-50/20">
