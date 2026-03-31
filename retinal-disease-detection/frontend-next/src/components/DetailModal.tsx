@@ -110,12 +110,22 @@ export const DetailModal: React.FC<DetailModalProps> = ({
                 <div className="space-y-6 sm:space-y-10">
                   {Object.entries(prediction.probabilities).sort((a,b) => b[1]-a[1]).map(([k, v]) => (
                     <div key={k}>
-                      <div className="mb-4 flex items-center justify-between">
+                      <div className="mb-2 flex items-center justify-between">
                         <span className="text-[11px] font-black uppercase tracking-widest text-slate-900 flex items-center gap-3 font-heading">
                            <div className="h-2 w-2" style={{ backgroundColor: SEV_COLOR[k] }} />
                            {k}
                         </span>
-                        <span className="font-technical text-sm font-black text-slate-400">{v.toFixed(2)}%</span>
+                        <div className="flex items-center gap-3">
+                          <span className={clsx(
+                             "text-[8px] sm:text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-sm",
+                             v < 30 ? "bg-slate-100 text-slate-400" :
+                             k === "Normal" ? "bg-emerald-100 text-emerald-700" :
+                             v >= 50 ? "bg-red-100 text-red-700 animate-pulse" : "bg-amber-100 text-amber-700"
+                          )}>
+                            {v < 30 ? "Unlikely" : k === "Normal" ? "Safe / Healthy" : v >= 50 ? "Medical Help Needed" : "Precaution Advised"}
+                          </span>
+                          <span className="font-technical text-sm font-black text-slate-500 w-12 text-right">{v.toFixed(2)}%</span>
+                        </div>
                       </div>
                       <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                         <div 

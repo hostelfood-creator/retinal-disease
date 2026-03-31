@@ -25,11 +25,12 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange, resultsC
         <div className="flex h-14 sm:h-16 items-center justify-between gap-4">
           <div className="flex flex-col justify-center min-w-0 shrink-0">
             <Image 
-              src="/logo.jpg" 
+              src="/logo.png" 
               alt="Netra AI - Intelligent Vision & Analytics" 
-              width={160} 
-              height={50} 
-              className="object-contain h-10 sm:h-12 w-auto"
+              width={220} 
+              height={70} 
+              className="object-contain h-12 sm:h-16 w-auto drop-shadow-sm"
+              quality={100}
               priority
             />
           </div>
